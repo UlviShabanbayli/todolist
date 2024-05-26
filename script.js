@@ -17,6 +17,7 @@ btnAdd.addEventListener("click", (e) => {
             disabled
             autofocus
             size="${inputAdd.value.length}"
+            onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';"
           />
           <div class="btn-edit" data-set="edit">
             <i class="fa-solid fa-pen-to-square edit" data-set="edit"></i>
