@@ -72,7 +72,7 @@ function myFunc(e) {
     }
   }
 
-  if (e.target.closest(".btn-delete")) {
+  if (e.target.closest(".btn-delete") && confirm("Are you sure?") === true) {
     e.target.closest(".btn-delete").parentElement.remove();
   }
 }
