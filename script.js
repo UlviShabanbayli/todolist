@@ -6,7 +6,9 @@ const list = document.querySelector(".list");
 
 btnAdd.addEventListener("click", (e) => {
   e.preventDefault();
-  list.innerHTML += `
+
+  if (inputAdd.value !== "") {
+    list.innerHTML += `
         <li class="list__item">
           <input
             type="text"
@@ -27,6 +29,9 @@ btnAdd.addEventListener("click", (e) => {
           </div>
         </li>
   `;
+  } else {
+    alert("Please fill the input");
+  }
 
   inputAdd.value = "";
 });
@@ -53,16 +58,18 @@ function myFunc(e) {
   }
 
   if (e.target.closest(".btn-check")) {
-    e.target
-      .closest(".btn-check")
-      .parentElement.querySelector(".list__input").style.color =
-      "rgba(202, 179, 153, 0.5)";
-    e.target
-      .closest(".btn-check")
-      .parentElement.querySelector(".list__input").style.textDecoration =
-      "line-through";
-    e.target.closest(".btn-check").parentElement.style.transform =
-      "scale(0.95)";
+    if (confirm("Are you sure?")) {
+      e.target
+        .closest(".btn-check")
+        .parentElement.querySelector(".list__input").style.color =
+        "rgba(202, 179, 153, 0.5)";
+      e.target
+        .closest(".btn-check")
+        .parentElement.querySelector(".list__input").style.textDecoration =
+        "line-through";
+      e.target.closest(".btn-check").parentElement.style.transform =
+        "scale(0.95)";
+    }
   }
 
   if (e.target.closest(".btn-delete")) {
